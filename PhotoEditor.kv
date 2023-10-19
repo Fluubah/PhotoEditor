@@ -1,0 +1,53 @@
+Display:
+<MouseTouch>:
+    button : load
+    BoxLayout:
+        size: "800dp","600dp"
+        orientation: "vertical"
+        TextInput:
+            id: enter
+        Button:
+            background_color:"black"
+            color:"white"
+            id: load
+            text:"Press Me"
+        Image:
+            id:img
+            source:""
+            size_hint: 1,10
+<Display>:
+    BoxLayout:
+        orientation:"vertical"
+        GridLayout:
+            orientation: "lr-tb"
+            cols: 2
+            rows: 4
+            TextInput:
+                id: img_name
+                hint_text: "Enter Image Name"
+            Button:
+                text: "Load Image"
+                on_release: root.load_image()
+            Button:
+                text: "Black And White"
+                on_release: root.black_and_white(root.ids.image.source)
+            Button:
+                text: "Invert"
+                on_release: root.invert(root.ids.image.source)
+            Button:
+                text: "Line Drawing"
+                on_release: root.line_drawing(root.ids.image.source)
+            Button:
+                text: "Pointillism"
+                on_release: root.pointillism(root.ids.image.source)
+            Button:
+                text: "Sepia"
+                on_release: root.sepia(root.ids.image.source)
+            Button:
+                text: "Pixelate"
+
+
+        BoxLayout:
+            Image:
+                id: image
+                source: root.display_image()
