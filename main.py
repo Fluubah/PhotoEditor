@@ -13,13 +13,17 @@ class PhotoEditorApp(App):
 
 class MouseTouch(Widget):
 
+    txtinput = ObjectProperty(None)
     button = ObjectProperty(None)
+    image = ObjectProperty(None)
+    coords=[]
 
     def on_touch_down(self, touch):
         print("Button Down")
-        coords=touch.pos
-        print(f"x coordinate: {str(int(coords[0]))}")
-        print(f"y coordinate: {str(int(coords[1]))}")
+        x, y = touch.x, touch.y
+        print(f"x coordinate: {str(int(x))}")
+        print(f"y coordinate: {str(int(y))}")
+
         self.button.background_color, self.button.color, self.button.text = "white", "black", "pressed"
 
     def on_touch_move(self, touch):
